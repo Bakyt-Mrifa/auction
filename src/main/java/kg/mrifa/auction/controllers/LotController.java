@@ -14,6 +14,7 @@ public class LotController {
     private LotService lotService;
     @PostMapping(value = "/save")
     public LotDto saveLot(@RequestBody LotDto lotDto){
+        System.out.println("Controller - lotDto: "+lotDto);
         return lotService.saveLot(lotDto);
     }
     @GetMapping("/get")

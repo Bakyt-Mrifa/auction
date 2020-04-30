@@ -14,7 +14,8 @@ public class LotDto {
     private String name;
     @JsonProperty("lotPrice")
     private double price;
-    private double minPrice;
+    @JsonProperty("minPrice")
+    private double minPr;
     private double step;
    // @JsonIgnore
     @JsonFormat(pattern = "dd/MM/yyyy")

@@ -6,6 +6,7 @@ import kg.mrifa.auction.mappings.LotMapper;
 import kg.mrifa.auction.models.domain.Lot;
 import kg.mrifa.auction.models.domain.Status;
 import kg.mrifa.auction.models.dto.LotDto;
+import kg.mrifa.auction.models.dto.StatusDto;
 import kg.mrifa.auction.services.LotService;
 import kg.mrifa.auction.utils.DataLoader;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,18 @@ public class LotServiceImpl implements LotService {
     private LotRepo lotRepo;
     @Override
     public LotDto saveLot(LotDto lotDto) {
-        /*List<Status> statuses= Arrays.asList(
-                new Status("Активен"),
-                new Status("Закрыт"),
-                new Status("Не начат"),
-                new Status("Определен победитель"));
-        if (lotDto.getStatus().getName()==statuses.stream().forEach(x->x.getName())){}*/
-        //преобразование lotDto в lot
+/*
+        StatusServiceImpl statusService=new StatusServiceImpl();
+        List<StatusDto> checkStatus=statusService.findStatuses();
+        System.out.println(checkStatus);
+        LotDto finalLotDto = lotDto;
+        checkStatus.stream().forEach(x->{
+            if (x.getName().equals(finalLotDto.getName())){
+                finalLotDto.setName(x.getName());
+            }
+        });
+*/
+        System.out.println("LotServiceImpl, lotDto: "+lotDto);
 
         Lot lot=LotMapper.INSTANCE.lotDtoToLot(lotDto);
         lot=lotRepo.save(lot);
